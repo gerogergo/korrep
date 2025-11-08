@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejelentkezés - Oktatási Anyagok</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5ee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin-top: 15px;
+            padding: 10px;
+            background: #ffeaea;
+            border-radius: 5px;
+            border: 1px solid #f5b7b1;
+            display: none;
+        }
+        
+        .student-info {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .student-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .info-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .info-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">🎓</div>
+        <h1>Bejelentkezés</h1>
+        <p class="subtitle">Add meg a felhasználóneved és jelszavad</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Felhasználónév:</label>
+                <input type="text" id="username" name="username" required placeholder="Add meg a felhasználóneved">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Jelszó:</label>
+                <input type="password" id="password" name="password" required placeholder="Add meg a jelszavad">
+            </div>
+            
+            <button type="submit" class="login-btn">Bejelentkezés</button>
+            
+            <div id="errorMessage" class="error-message">
+                Hibás felhasználónév vagy jelszó!
+            </div>
+        </form>
+        
+        
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Felhasználók ellenőrzése
+            const users = {
+                'Adél': '0011',
+                'GZ': '0091', 
+                'Dani': '0092',
+                'Andi': '1234'
+            };
+            
+            if (users[username] && users[username] === password) {
+                // Sikeres bejelentkezés
+                errorMessage.style.display = 'none';
+                
+                // Átirányítás a diák saját oldalára
+                switch(username) {
+                    case 'Adél':
+                        window.location.href = 'adel.html';
+                        break;
+                    case 'GZ':
+                        window.location.href = 'GZ.html';
+                        break;
+                    case 'Dani':
+                        window.location.href = 'dani.html';
+                        break;
+                    default:
+                        window.location.href = 'index.html';
+                    case 'Andi':
+                        window.location.href = 'andi.html';
+                        break;
+                }
+            } else {
+                // Hibás bejelentkezés
+                errorMessage.style.display = 'block';
+            }
+        });
+        
+        // Enter billentyű használata
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. osztály Fizika - Egyszerű mozgások</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .topic-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        
+        .topic-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .topic-header:hover {
+            background: #34495e;
+        }
+        
+        .topic-header h2 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .topic-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-content.active {
+            padding: 25px;
+            max-height: 1000px;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .material-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        .material-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .material-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .download-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .file-info {
+            background: #e8f4fc;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>9. osztály Fizika</h1>
+            <p>Egyszerű mozgások témakör</p>
+            <a href="bejelentkezes.html" class="back-btn">← Vissza a főoldalra</a>
+        </div>
+
+        <!-- Egyszerű mozgások témakör -->
+        <div class="topic-section">
+            <div class="topic-header" onclick="toggleTopic('mozgasok')">
+                <h2>🚀 Egyszerű mozgások</h2>
+                <span class="toggle-icon" id="mozgasokIcon">▼</span>
+            </div>
+            
+            <div class="topic-content" id="mozgasokContent">
+                <div class="materials-grid">
+                    <!-- 1. Feladatsor -->
+                    <div class="material-card">
+                        <h3>📝 1. Feladatsor</h3>
+                        <p>Egyenes vonalú egyenletes és egyenletesen változó mozgások</p>
+                        <div class="file-info">
+                            <strong>Bevezető kinematika:</strong><br>
+                            • Út, sebesség, elmozdulás, pálya<br>
+                            • Gyorsulás<br>
+                            • Vektorok
+                        </div>
+                        <a href="feladatsor_1_mozgasok.pdf" download="9_osztaly_fizika_feladatsor_1.pdf" class="download-btn">
+                            📥 Letöltés
+                        </a>
+                    </div>
+                    
+                    <!-- 1. Elméleti összefoglaló -->
+                    <div class="material-card">
+                        <h3>📚 1. Elméleti összefoglaló</h3>
+                        <p>Mozgástan alapfogalmai és képletek</p>
+                        <div class="file-info">
+                            <strong>Tartalom:</strong><br>
+                            • Sebesség fogalma<br>
+                            • Gyorsulás definíciója<br>
+                            • Mozgástípusok<br>
+                            • Alapképletek
+                        </div>
+                        <a href="elmeleti_1_mozgasok.pdf" download="9_osztaly_fizika_elmeleti_1.pdf" class="download-btn">
+                            📥 Letöltés
+                        </a>
+                    </div>
+                    
+                    <!-- 1. Házi feladat -->
+                    <div class="material-card">
+                        <h3>🏠 1. Házi feladatok</h3>
+                        <p>Gyakorló feladatok az egyszerű mozgásokról</p>
+                        <div class="file-info">
+                            <strong>Határidő:</strong> 2025. november 17.<br>
+                            <strong></strong> 
+                        </div>
+                        <a href="hazi_1_mozgasok.pdf" download="9_osztaly_fizika_hazi_1.pdf" class="download-btn">
+                            📥 Letöltés
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTopic(topicId) {
+            const content = document.getElementById(topicId + 'Content');
+            const icon = document.getElementById(topicId + 'Icon');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.textContent = '▲';
+            } else {
+                icon.textContent = '▼';
+            }
+        }
+        
+        // Automatikusan nyitva az első témakör
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleTopic('mozgasok');
+        });
+    </script>
+</body>
+</html>

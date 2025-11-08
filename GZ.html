@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gréti és Zoé</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .week-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        
+        .week-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .week-header:hover {
+            background: #34495e;
+        }
+        
+        .week-header h2 {
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .week-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .week-content.active {
+            padding: 25px;
+            max-height: 1000px;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .material-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        .material-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .material-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .download-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .file-info {
+            background: #e8f4fc;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gréti és Zoé</h1>
+            <p>Matek - Fizika órák</p>
+            <a href="bejelentkezes.html" class="back-btn">← Kijelentkezés</a>
+        </div>
+
+        <!-- 7. hét -->
+        <div class="week-section">
+            <div class="week-header" onclick="toggleWeek('week7')">
+                <h2>📅 7. hét anyagai - Aktuális - </h2>
+                <span class="toggle-icon" id="week7Icon">▼</span>
+            </div>
+            
+            <div class="week-content" id="week7Content">
+                <div class="materials-grid">
+                    <!-- 7. Feladatsor -->
+                    <div class="material-card">
+                        <h3>📝 7. Feladatsor</h3>
+                        <p>Egyenes vonalú egyenletes és egyenletesen változó mozgások</p>
+                        <div class="file-info">
+                            <strong>Bevezető kinematika:</strong><br>
+                            • Út, sebesség, elmozdulás, pálya<br>
+                            • Gyorsulás<br>
+                            • Vektorok
+                        </div>
+                        <a href="feladatsor_7.pdf" download="7_feladatsor.pdf" class="download-btn">
+                            📥 Letöltés
+                        </a>
+                    </div>
+                    
+                    <!-- 7. Házi feladat -->
+                    <div class="material-card">
+                        <h3>🏠 7. Házi feladatok</h3>
+                        <p>Gyakorló feladatok az egyszerű mozgásokról</p>
+                        <div class="file-info">
+                            <strong>Határidő:</strong> 2025. november 10.
+                        </div>
+                        <a href="hazi_7.pdf" download="7_hazi.pdf" class="download-btn">
+                            📥 Letöltés
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. hét -->
+        <div class="week-section">
+            <div class="week-header" onclick="toggleWeek('week8')">
+                <h2>📅 8. hét anyagai</h2>
+                <span class="toggle-icon" id="week8Icon">▼</span>
+            </div>
+            
+            <div class="week-content" id="week8Content">
+                <div class="materials-grid">
+                    <!-- 8. Feladatsor -->
+                    <div class="material-card">
+                        <h3>📝 8. Feladatsor</h3>
+                        <p>Szabadesés és függőleges hajítás</p>
+                        <div class="file-info">
+                            <strong>Gravitációs mozgások:</strong><br>
+                            • Szabadesés képletei<br>
+                            • Függőleges hajítás<br>
+                            • Maximális magasság számítás
+                        </div>
+                        <a href="feladatsor_8.pdf" download="8_feladatsor.pdf" class="download-btn">
+                            📥 Letöltés
+                        </a>
+                    </div>
+                    
+                    <!-- 8. Házi feladat -->
+                    <div class="material-card">
+                        <h3>🏠 8. Házi feladatok</h3>
+                        <p>Szabadesés gyakorló feladatok</p>
+                        <div class="file-info">
+                            <strong>Határidő:</strong> 2025. november 17.
+                        </div>
+                        <a href="hazi_8.pdf" download="8_hazi.pdf" class="download-btn">
+                            📥 Letöltés
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. hét (üres, később bővíthető) -->
+        <div class="week-section">
+            <div class="week-header" onclick="toggleWeek('week9')">
+                <h2>📅 9. hét anyagai</h2>
+                <span class="toggle-icon" id="week9Icon">▼</span>
+            </div>
+            
+            <div class="week-content" id="week9Content">
+                <div style="text-align: center; padding: 40px; color: #666;">
+                    <p>🚧 Ezen a héten még nincsenek anyagok</p>
+                    <p>Az anyagok hamarosan feltöltésre kerülnek</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleWeek(weekId) {
+            const content = document.getElementById(weekId + 'Content');
+            const icon = document.getElementById(weekId + 'Icon');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.textContent = '▲';
+            } else {
+                icon.textContent = '▼';
+            }
+        }
+        
+        // Automatikusan nyitva az első hét
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleWeek('week7');
+        });
+    </script>
+</body>
+</html>
